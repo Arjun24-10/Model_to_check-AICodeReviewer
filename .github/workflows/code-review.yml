@@ -4,8 +4,15 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+permissions:
+  pull-requests: write
+  contents: read
+
 jobs:
   review:
     uses: Arjun24-10/AI_Code_reviewer/.github/workflows/reusable-review.yml@main
+    permissions:
+      pull-requests: write
+      contents: read
     secrets:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
